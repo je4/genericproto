@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "github.com/je4/genericproto/v2/pkg/generic/proto";
+option java_package = "ch.unibas.ub.genericproto.generic";
+option java_outer_classname = "DefaultResponseProto";
+option java_multiple_files = true;
+option objc_class_prefix = "UBB";
+option csharp_namespace = "Unibas.UB.GenericProto.Generic";
+
+package genericproto;
+
+import "google/protobuf/any.proto";
+
+enum ResultStatus {
+  Error = 0;
+  OK = 1;
+  Warning = 2;
+  NotFound = 3;
+}
+
+message DefaultResponse {
+  ResultStatus status = 1;
+  string message = 2;
+  optional google.protobuf.Any data = 3;
+}

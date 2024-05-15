@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "github.com/je4/genericproto/v2/pkg/generic/proto";
+option java_package = "ch.unibas.ub.genericproto.generic";
+option java_outer_classname = "SortProto";
+option java_multiple_files = true;
+option objc_class_prefix = "UBB";
+option csharp_namespace = "Unibas.UB.GenericProto.Generic";
+
+package genericproto;
+
+message SortField {
+    string field = 1;
+    bool ascending = 2;
+}
+
+message Sort {
+    repeated SortField sort = 1;
+}

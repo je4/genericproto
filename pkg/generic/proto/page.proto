@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option go_package = "github.com/je4/genericproto/v2/pkg/generic/proto";
+option java_package = "ch.unibas.ub.genericproto.generic";
+option java_outer_classname = "PageProto";
+option java_multiple_files = true;
+option objc_class_prefix = "UBB";
+option csharp_namespace = "Unibas.UB.GenericProto.Generic";
+
+package genericproto;
+
+message PageResponse {
+  oneof pageResponse {
+    PageResult pageResult = 1;
+    string PageToken = 2;
+  }
+}
+
+message PageResult {
+  int64 pageSize = 1;
+  int64 pageNo = 2;
+  int64 total = 3;
+}
+
+message PageRequest {
+  oneof pageRequest {
+    Page page = 1;
+    string PageToken = 2;
+  }
+}
+
+
+message Page {
+    int64 pageSize = 2;
+    int64 pageNo = 3;
+}
